@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var image:ImageView
     lateinit var uri:Uri
 
-    val detector = FirebaseVision.getInstance().cloudTextRecognizer
+    val detector = FirebaseVision.getInstance()
+        .onDeviceTextRecognizer
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +64,7 @@ class MainActivity : AppCompatActivity() {
     fun dispatchGalleryIntent(){
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), SELECT_PICTURE)
+        startActivityForResult(intent, SELECT_PICTURE)
     }
 
     override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?){

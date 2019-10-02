@@ -35,12 +35,13 @@ class ListViewAdapter(private val activity: Activity, photoList: ArrayList<Photo
     override fun getView(i: Int, convertView: View?, viewGroup: ViewGroup): View {
         var vi: View? = convertView
         val inflater = activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        vi = inflater.inflate(R.layout.list_item, null)
-        val author = vi.findViewById(R.id.showAuthor) as TextView
+        vi = inflater.inflate(R.layout.list_item, viewGroup,false)
         val image = vi.findViewById(R.id.showImage) as ImageView
-        println(photoList[i].url + " " + photoList[i].author)
+        Picasso.get().load(photoList[i].url).centerCrop().resize(240,240).into(image)
+        val author = vi.findViewById(R.id.showAuthor) as TextView
         author.text = photoList[i].author
-        Picasso.get().load(photoList[i].url).into(image)
+
+
 
         return vi
     }
