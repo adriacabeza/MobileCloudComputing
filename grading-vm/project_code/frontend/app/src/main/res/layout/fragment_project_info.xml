@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:background="@color/colorBackgroundLightGrey"
+    android:orientation="vertical"
+    tools:context=".CreateProjectActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv_profilepic"
+            android:layout_width="164dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="@dimen/mtrl_card_spacing"
+            android:layout_marginRight="@dimen/mtrl_card_spacing"
+            android:layout_marginTop="@dimen/mtrl_card_spacing"
+            android:layout_marginBottom="@dimen/mtrl_card_spacing"
+            android:layout_gravity="center_horizontal"
+            app:cardBackgroundColor="@color/colorBackgroundMidLightGrey"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/colorPrimaryAlpha50"
+            android:minHeight="200dp">
+            <ImageView
+                android:id="@+id/iv_placeholder"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:srcCompat="@drawable/ic_folder_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:alpha="0.8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/iv_projectpic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:background="@android:color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_keywords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:chipSpacingVertical="4dp"/>
+
+            <TextView
+                android:id="@+id/tv_project_description"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                tools:text="Description about what the project is about"/>
+
+            <TextView
+                android:id="@+id/tv_project_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimary"
+                tools:text="GROUP PROJECT"/>
+
+            <TextView
+                android:id="@+id/tv_project_n_members"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:textColor="@color/colorPrimary"
+                tools:text="3 MEMBER(S)"
+                tools:visibility="visible"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_members"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:chipSpacingVertical="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_add_member"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Member"
+                app:layout_constraintBottom_toTopOf="@+id/assignedLayout"
+                tools:visibility="visible"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

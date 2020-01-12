@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow the user to access documents in the "cities" collection
+    // only if they are authenticated.
+    match /projects/{project} {
+      allow read, write: if request.auth.uid == resource.data.admin ;
+    }
+    match /users/{user} {
+      allow read, write: if request.auth.uid == resource.data.id ;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  # Backend
+  backend:
+    image: nodebackend:mcc 
+    container_name: nodebackend
+    build:
+      context: exercise
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on: 
+        - mongo
+  # Mongo
+  mongo:
+     image: mongo:4.2.0
+     container_name: mongo
+     volumes:
+       -./data:data/db
+     ports:
+       - 1048:27017

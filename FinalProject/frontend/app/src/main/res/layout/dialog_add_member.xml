@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/custom_dialog"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Username"
+        android:textSize="15dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/usersEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B0B0B0"
+            android:ems="10"
+            android:inputType="text"
+            android:text=""
+            android:textColorHint="#B0B0B0"
+            android:textSize="15dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fafff7"
+            app:singleLine="true"
+            app:singleSelection="true"
+            tools:layout_editor_absoluteX="32dp">
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+
+
+</LinearLayout>

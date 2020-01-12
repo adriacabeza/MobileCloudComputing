@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Task Manager Pro</string>
+    <string name="title_activity_project_list">ProjectListActivity</string>
+    <string name="tab_text_1">Favourites</string>
+    <string name="tab_text_2">Main</string>
+    <string name="tab_text_3">Upcoming</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Create Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="e_mail">E-mail</string>
+    <string name="create_account">Create Account</string>
+    <string name="title_activity_project">ProjectActivity</string>
+    <string name="info">Info</string>
+    <string name="tasks">Tasks</string>
+    <string name="pictures">Pictures</string>
+    <string name="files">Files</string>
+    <string name="filter_projects">Filter Projects</string>
+    <string name="search_project">Search Project</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="search_hint">Search Project</string>
+    <string name="delete_project">Delete Project</string>
+    <string name="log_out">Log out</string>
+    <string name="settings">Settings</string>
+    <string name="image_upload_success">Image added to the project</string>
+    <string name="file_upload_success">File added to the project</string>
+    <string name="file_upload_error">Something went wrong</string>
+    <string name="permissions_required_error">Error. Permissions required.</string>
+    <string name="download_report">Download report</string>
+    <string name="user_settings">Profile</string>
+    <string name="keywords">Keywords</string>
+</resources>

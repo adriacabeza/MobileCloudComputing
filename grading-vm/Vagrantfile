@@ -1,0 +1,74 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "hashicorp/bionic64"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  config.vm.box_check_update = false
+
+  # Share a project folder with the host system
+  config.vm.synced_folder "project_code/", "/project"
+
+  config.vm.provider "virtualbox" do |vb|
+    # Customize the amount of memory on the VM:
+    vb.memory = "4096"
+
+    # Enable USB and add phone
+    vb.customize ["modifyvm", :id, "--usb", "on", "--usbehci", "on", "--usbxhci", "on"]
+    vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "Huawei LYA-L29 / LON-L29", "--vendorid", "0x12d1", "--productid", "0x107e"]
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    # Install basic tools
+    apt-get update
+    apt-get install -y apt-transport-https ca-certificates gnupg unzip
+
+    # NodeJS
+    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+
+    # Cloud Shell SDK repos
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+    # Install Cloud SDK, NodeJS, OpenJDK, firebase-tools
+    apt-get update
+    apt-get install -y google-cloud-sdk=272.0.0-0 nodejs openjdk-8-jdk-headless
+    npm install -g firebase-tools@7.8.1
+
+    # Install Terraform
+    wget -O terraform.zip -q https://releases.hashicorp.com/terraform/0.12.16/terraform_0.12.16_linux_amd64.zip
+    unzip -q -d /usr/local/bin/ terraform.zip
+    rm terraform.zip
+
+    # Install Android SDK tools
+    echo "Downloading Android SDK tools"
+    wget -O sdk.zip -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+    mkdir /opt/android
+    unzip -q -d /opt/android/ sdk.zip
+    chown -R vagrant:vagrant /opt/android
+    rm sdk.zip
+
+    echo export PATH=\\"\\$PATH:/opt/android/tools/bin:/opt/android/tools:/opt/android/platform-tools\\" > /etc/profile.d/android-sdk.sh
+    echo export ANDROID_HOME=\\"/opt/android\\" >> /etc/profile.d/android-sdk.sh
+    chmod +x /etc/profile.d/android-sdk.sh
+
+    # Accept licenses and install rest of Android tools
+    sudo -i -u vagrant <<'EOF'
+      echo "Accepting Android SDK licenses"
+      yes | sdkmanager --licenses >/dev/null
+      echo "Installing Android SDK elements with sdkmanager"
+      sdkmanager --install tools platform-tools "build-tools;29.0.2" \
+        "platforms;android-29" "platforms;android-28" \
+        "platforms;android-27" "platforms;android-26" >/dev/null
+EOF
+
+    # ADB udev rules
+    cp /vagrant/51-android.rules /lib/udev/rules.d/
+    udevadm control -R
+
+  SHELL
+end

@@ -1,0 +1,39 @@
+{
+  "name": "app-server",
+  "description": "App server",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^4.1.3",
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "child-process-promise": "^2.2.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0",
+    "firebase-tools": "^7.8.1",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.15",
+    "mkdirp": "^0.5.1",
+    "mkdirp-promise": "^5.0.1",
+    "nodemon": "^2.0.1",
+    "ramda": "^0.26.1",
+    "sharp": "^0.23.3",
+    "short-uuid": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@types/axios": "^0.14.0",
+    "axios": "^0.19.0",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "node-fetch": "^2.6.0"
+  },
+  "private": true
+}

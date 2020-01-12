@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cardview_project_height"
+    android:layout_marginBottom="@dimen/cardview_divider_margin"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="@dimen/cardview_project_height"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:background="@color/colorBackgroundMidGrey"
+            android:id="@+id/iv_projectpic"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@+id/iv_projectpic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/bt_overflow">
+
+            <TextView
+                android:id="@+id/itemTitle"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:alpha="0.85"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/itemLastModification"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:alpha="0.65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="2"
+                tools:text="Last modified"/>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_overflow"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:visibility="gone"
+            android:text=""
+            app:iconPadding="0dp"
+            app:iconGravity="textStart"
+            android:padding="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_margin="4dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:icon="@drawable/ic_more_vert_18dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_star"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:text=""
+            app:iconPadding="0dp"
+            app:iconGravity="textStart"
+            android:padding="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_margin="4dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/ic_star_border_24dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_hasmedia"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:text=""
+            app:iconPadding="0dp"
+            app:iconGravity="textStart"
+            android:padding="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:layout_margin="4dp"
+            app:layout_constraintRight_toLeftOf="@id/bt_star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/ic_collections_24dp"
+            android:clickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            app:iconTint="@color/colorPrimary"
+            android:background="#00000000"
+            android:foreground="#00000000"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

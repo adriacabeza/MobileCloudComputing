@@ -1,0 +1,2 @@
+This folder is shared with the VM and mounted as /project.
+Use it to share code and other resources with the VM.

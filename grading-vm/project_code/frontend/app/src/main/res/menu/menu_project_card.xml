@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/delete_project"
+        android:title="@string/delete_project"
+        app:showAsAction="never" />
+    <item android:id="@+id/download_report"
+        android:title="@string/download_report"
+        app:showAsAction="never" />
+</menu>
