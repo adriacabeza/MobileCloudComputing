@@ -2,8 +2,6 @@
 
 **Task Manager Pro** is an Android application that manages projects for several users. Organize your projects between your favorites or the ones that have the nearest deadline, download a report summarizing the project, attach pictures or documents and share them between the members of the group or even use ML to create tasks using only a photo. Task Manager PRO is the true new meaning to the concept of a task manager app.
 
-# TODO: remember to delete gradint-vw folder and upload endpoints
-
 ## STRUCTURE OF THE REPOSITORY
 
 The repository is mainly based on two very different and separate parts:
@@ -353,8 +351,6 @@ Base URL: <https://mcc-fall-2019-g10.appspot.com>
 
 
 ## 👤 **Collaborators**
-
-- [@INSERTHERE](https://github.com/INSERTHERE)
 - [@adriacabeza](https://github.com/adriacabeza)
 - [@Zhongyuan Jin](https://github.com/jzyxyz)
 - [@xmartin46](https://github.com/xmartin46)
