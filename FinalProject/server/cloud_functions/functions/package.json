@@ -42,7 +42,7 @@
     "babel-jest": "^24.9.0",
     "firebase-functions-test": "^0.1.6",
     "jest": "^24.9.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "private": true
 }
